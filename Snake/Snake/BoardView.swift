@@ -26,11 +26,15 @@ class BoardView: NSView {
     }
     
     func drawSnake() {
-        drawSnakeCellAt(col: 2, row: 3, color:  #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1))
-        drawSnakeCellAt(col: 3, row: 3, color:  #colorLiteral(red: 0.7254902124, green: 0.4784313738, blue: 0.09803921729, alpha: 1))
-        drawSnakeCellAt(col: 3, row: 2, color:  #colorLiteral(red: 0.7254902124, green: 0.4784313738, blue: 0.09803921729, alpha: 1))
-        drawSnakeCellAt(col: 4, row: 2, color:  #colorLiteral(red: 0.7254902124, green: 0.4784313738, blue: 0.09803921729, alpha: 1))
-        drawSnakeCellAt(col: 5, row: 2, color:  #colorLiteral(red: 0.7254902124, green: 0.4784313738, blue: 0.09803921729, alpha: 1))
+        drawSnakeCell(snakeCell: SnakeCell(col: 2, row: 3, isHead: true))
+        drawSnakeCell(snakeCell: SnakeCell(col: 3, row: 3, isHead: false))
+        drawSnakeCell(snakeCell: SnakeCell(col: 3, row: 2, isHead: false))
+        drawSnakeCell(snakeCell: SnakeCell(col: 4, row: 2, isHead: false))
+        drawSnakeCell(snakeCell: SnakeCell(col: 5, row: 2, isHead: false))
+    }
+    
+    func drawSnakeCell(snakeCell: SnakeCell) {
+        drawSnakeCellAt(col: snakeCell.col, row: snakeCell.row, color: snakeCell.isHead ? #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1) : #colorLiteral(red: 0.7254902124, green: 0.4784313738, blue: 0.09803921729, alpha: 1))
     }
     
     func drawSnakeCellAt(col: Int, row: Int, color: NSColor) {
